@@ -1,0 +1,10 @@
+{"intents":[
+    {"tag":"greeting", 
+    "patterns":["Hi","How are you", "Hello"],
+    "responses":["Hello, how are you?", "Hello how can I help?"]
+},
+    {"tag":"goodbye",
+    "patterns":["goodbye", "bye", "see you later"],
+    "responses":["See you later, hope you've been informed", "Bye, Stay safe", "Get vaxxed and stay masked."]
+    }
+]}
