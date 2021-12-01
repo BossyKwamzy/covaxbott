@@ -1,6 +1,6 @@
 {"intents":[
     {"tag":"greeting", 
-    "patterns":["Hi","How are you", "Hello"],
+    "patterns":["Hi","How are you", "Hello", "hey"],
     "responses":["Hello, how are you?", "Hello how can I help?"]
 },
     {"tag":"goodbye",

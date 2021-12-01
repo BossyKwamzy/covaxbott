@@ -25,13 +25,8 @@ model.load_state_dict(model_state)
 model.eval()
 
 bot_name="Vaksina"
-print("Let's chat! type 'quit' to exit")
-while True:
-    sentence=input('You:')
-    if sentence=="quit":
-        break
-
-    sentence=tokenize(sentence)
+def get_response(msg):
+    sentence=tokenize(msg)
     x=bag_of_words(sentence, all_words)
     x=x.reshape(1, x.shape[0])
     x=torch.from_numpy(x)
@@ -43,10 +38,11 @@ while True:
     probs=torch.softmax(output, dim=1)
     prob= probs[0][predicted.item()]
 
-    if prob.item()>0.75:
+    if prob.item()>0.25:
         for intent in intents["intents"]:
             if tag==intent["tag"]:
-                print(f"{bot_name}: {random.choice(intent['responses'])}")
-                #print(f"{bot_name}: {random.choice(intent["responses"])}")
+                return random.choice(intent['responses'])
+                
     else:
-        print(f"{bot_name}: I didn't quite get that")
+        return "I didn't quite get that"
+
